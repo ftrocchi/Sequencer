@@ -18,7 +18,7 @@ struct ServoCommand {
   enum Value {
     Close = 0,
     Open = 1,
-    MoveToPercentage = 2,
+    MoveToPercent = 2,
     Delay = 3
   };
 };
@@ -42,6 +42,18 @@ inline void SerialPrint(int msg) {
 }
 
 inline void SerialPrintln(int msg) {
+#ifdef USE_SERIAL
+  Serial.println(msg);
+#endif
+}
+
+inline void SerialPrint(float msg) {
+#ifdef USE_SERIAL
+  Serial.print(msg);
+#endif
+}
+
+inline void SerialPrintln(float msg) {
 #ifdef USE_SERIAL
   Serial.println(msg);
 #endif

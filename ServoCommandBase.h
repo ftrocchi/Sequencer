@@ -5,11 +5,12 @@
 
 class ServoCommandBase {
 private:
-  ServoBoard::Value board;
-  int boardI2CAddress;
+  ServoCommand::Value command;
   
 public:
-  ServoCommandBase(ServoBoard::Value boardToUse);
+  ServoCommandBase(ServoCommand::Value commandToUse);
+  
+  virtual void Run();
 };
 
 #endif
